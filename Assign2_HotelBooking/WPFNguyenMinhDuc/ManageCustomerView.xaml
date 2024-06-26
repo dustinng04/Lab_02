@@ -1,0 +1,72 @@
+﻿<Window x:Class="WPFNguyenMinhDuc.ManageCustomersView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNguyenMinhDuc" 
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="ManageCustomersView" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <!-- Search Section -->
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBox Name="SearchCustomerTextBox" Width="215" Text="Search by Name or Email"  />
+                <Button Content="Search" Width="100" Click="SearchCustomer_Click" Margin="5,0,0,0"/>
+            </StackPanel>
+            <!-- Input Section -->
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="Customer ID:" Width="120" />
+                <TextBox Name="CustomerIdTextBox" Width="200" IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="Full Name:" Width="120" />
+                <TextBox Name="CustomerFullNameTextBox" Width="200" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="Telephone:" Width="120" />
+                <TextBox Name="CustomerTelephoneTextBox" Width="200" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="Email Address:" Width="120" />
+                <TextBox Name="CustomerEmailTextBox" Width="200" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="Birthday:" Width="120" />
+                <DatePicker Name="CustomerBirthdayPicker" Width="200" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="Status:" Width="120" />
+                <ComboBox Name="CustomerStatusComboBox" Width="200">
+                    <ComboBoxItem Content="Active" Tag="1" />
+                    <ComboBoxItem Content="Inactive" Tag="2" />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="Password:" Width="120" />
+                <PasswordBox Name="CustomerPasswordBox" Width="200" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button Content="Add" Width="100" Click="AddCustomer_Click" />
+                <Button Content="Update" Width="100" Margin="5,0,0,0" Click="UpdateCustomer_Click" />
+                <Button Content="Delete" Width="100" Margin="5,0,0,0" Click="DeleteCustomer_Click" />
+            </StackPanel>
+        </StackPanel>
+        <!-- DataGrid Section -->
+        <DataGrid Name="dgCustomers" Grid.Row="2" AutoGenerateColumns="False" Margin="10" IsReadOnly="True" SelectionChanged="dgCustomers_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Customer ID" Binding="{Binding CustomerId}" Width="100" />
+                <DataGridTextColumn Header="Full Name" Binding="{Binding CustomerFullName}" Width="200" />
+                <DataGridTextColumn Header="Telephone" Binding="{Binding Telephone}" Width="150" />
+                <DataGridTextColumn Header="Email" Binding="{Binding EmailAddress}" Width="200" />
+                <DataGridTextColumn Header="Birthday" Binding="{Binding CustomerBirthday}" Width="150" />
+                <DataGridTextColumn Header="Status" Binding="{Binding CustomerStatus}" Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

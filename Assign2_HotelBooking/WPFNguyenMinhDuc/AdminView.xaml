@@ -1,0 +1,21 @@
+﻿<Window x:Class="WPFNguyenMinhDuc.AdminView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNguyenMinhDuc"
+        xmlns:vm="clr-namepsace:WPFNguyenMinhDuc.ViewModels" xmlns:viewmodels="clr-namespace:WPFNguyenMinhDuc.ViewModels"
+        mc:Ignorable="d"
+        Title="Admin Dashboard" Height="350" Width="525">
+    <Window.DataContext>
+        <viewmodels:AdminViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Manage Rooms" Command="{Binding ManageRoomsCommand}" Width="200" Margin="10" Padding="10"/>
+            <Button Content="Create Report" Command="{Binding CreateReportCommand}" Width="200" Margin="10" Padding="10"/>
+            <Button Content="Manage Customers" Command="{Binding ManageCustomersCommand}" Width="200" Margin="10" Padding="10"/>
+        </StackPanel>
+        <TextBlock x:Name="AdminViewTitle" HorizontalAlignment="Center" Margin="0,28,0,0" TextWrapping="Wrap" Text="Welcome To Admin Page" VerticalAlignment="Top" FontSize="18"/>
+    </Grid>
+</Window>
